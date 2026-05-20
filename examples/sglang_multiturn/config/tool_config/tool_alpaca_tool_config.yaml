@@ -1,0 +1,20 @@
+tools:
+  - class_name: "verl.tools.tool_alpaca_tool.ToolAlpacaTool"
+    config:
+      use_fuzzy_matching: true  # Enable fuzzy matching for input parameters
+      debug: false  # Enable debug logging
+    tool_schema:
+      type: "function"
+      function:
+        name: "evaluate_tool_call"
+        description: "Evaluate the model's tool call against the expected golden answer"
+        parameters:
+          type: "object"
+          properties:
+            Action:
+              type: "string"
+              description: "The name of the tool/action to call"
+            Action_Input:
+              type: "string"
+              description: "The input to the action in JSON format"
+          required: ["Action", "Action_Input"]
